@@ -2,10 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+using UnityEngine.Networking;
+
+public class PlayerController : NetworkBehaviour {
+
+
+
 
 	// Update is called once per frame
 	void Update () {
+
+        if (!isLocalPlayer)
+        {
+            //make sure you can't modify this function if you are not the local player.
+            return;
+        }
 
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
         var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
