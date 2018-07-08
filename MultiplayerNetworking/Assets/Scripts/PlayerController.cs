@@ -1,20 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 using UnityEngine.Networking;
 
-public class PlayerController : NetworkBehaviour {
-
-
-
-
-	// Update is called once per frame
-	void Update () {
-
+public class PlayerController : NetworkBehaviour
+{
+    void Update()
+    {
         if (!isLocalPlayer)
         {
-            //make sure you can't modify this function if you are not the local player.
             return;
         }
 
@@ -23,6 +15,10 @@ public class PlayerController : NetworkBehaviour {
 
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, z);
-		
-	}
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        gameObject.GetComponent<Renderer>().material.color = Color.blue;
+    }
 }
