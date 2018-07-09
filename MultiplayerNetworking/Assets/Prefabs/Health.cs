@@ -6,6 +6,7 @@ public class Health : MonoBehaviour {
 
     public const int maxHealth = 100;
     public int currentHealth = maxHealth;
+    public RectTransform healthBar;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class Health : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+
 		
 	}
 
@@ -29,5 +31,6 @@ public class Health : MonoBehaviour {
             //dead
             Debug.Log("Dead!");
         }
+        healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
     }
 }
