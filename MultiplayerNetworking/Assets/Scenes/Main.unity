@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 229308393}
   - component: {fileID: 229308392}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: Enemy Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1045231157292974, guid: f475c5fda2eac8948987ffaf6316d49c,
     type: 2}
-  numberOfEnemies: 0
+  numberOfEnemies: 10
 --- !u!114 &229308393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,6 +566,7 @@ MonoBehaviour:
   m_OnlineScene: 
   m_SpawnPrefabs:
   - {fileID: 1457806652183766, guid: 2ab9012f670ea8b42a54977a7b84150f, type: 2}
+  - {fileID: 1045231157292974, guid: f475c5fda2eac8948987ffaf6316d49c, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:

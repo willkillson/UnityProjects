@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class Health : NetworkBehaviour {
 
     public const int maxHealth = 100;
-
+    public bool destroyOnDeath;
 
     [SyncVar(hook = "OnChangeHealth")]
     public int currentHealth = maxHealth;
@@ -37,9 +37,17 @@ public class Health : NetworkBehaviour {
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            //dead
-            currentHealth = maxHealth;
-            RpcRespawn();
+            if (destroyOnDeath)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                // existing Respawn code     
+                currentHealth = maxHealth;
+                RpcRespawn();
+            }
+
         }
 
     }
